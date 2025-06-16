@@ -97,6 +97,14 @@ test:
 #     database: hello_app_production_cable
 #     migrations_paths: db/cable_migrate
 
+# production:
+#   <<: *default
+#   url: <%= ENV["DATABASE_URL"] %>
+
 production:
-  <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
+  database: dummy
+  username: dummy
+  password: dummy
+  host: localhost
+
