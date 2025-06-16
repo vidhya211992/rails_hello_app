@@ -108,3 +108,11 @@ production:
   password: dummy
   host: localhost
 
+  queue:
+    <<: *default
+    database: dummy_queue
+    username: dummy
+    password: dummy
+    host: localhost
+
+
