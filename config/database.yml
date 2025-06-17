@@ -101,18 +101,30 @@ test:
 #   <<: *default
 #   url: <%= ENV["DATABASE_URL"] %>
 
+# production:
+#   adapter: postgresql
+#   database: dummy
+#   username: dummy
+#   password: dummy
+#   host: localhost
+
+#   queue:
+#     <<: *default
+#     database: dummy_queue
+#     username: dummy
+#     password: dummy
+#     host: localhost
+
 production:
-  adapter: postgresql
-  database: dummy
-  username: dummy
-  password: dummy
-  host: localhost
+  primary:
+    adapter: postgresql
+    url: <%= ENV['DATABASE_URL'] %>
+    pool: 5
 
   queue:
-    <<: *default
-    database: dummy_queue
-    username: dummy
-    password: dummy
-    host: localhost
+    adapter: postgresql
+    url: <%= ENV['DATABASE_URL'] %>
+    pool: 5
+
 
 
